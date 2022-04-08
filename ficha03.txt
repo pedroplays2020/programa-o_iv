@@ -50,34 +50,10 @@ print(sb)
 
 #ex3 
 xrr=[]
-x=sorted(xrr)
 n1=int(input("introduza um numero "))
 n2=int(input("introduza um numero"))
 n3=int(input("introduza um numero "))
-
 xrr.append(n1)
 xrr.append(n2)
 xrr.append(n3)
 print(xrr)
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
-    
-
