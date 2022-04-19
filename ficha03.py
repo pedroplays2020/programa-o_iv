@@ -1,5 +1,8 @@
 #ex1
 
+from array import array
+
+
 i=0
 coun= 0
 sum=0
@@ -49,16 +52,18 @@ print(sb)
 
 
 #ex3 
-xrr=[]
-x=sorted(xrr)
-n1=int(input("introduza um numero "))
-n2=int(input("introduza um numero"))
-n3=int(input("introduza um numero "))
+def intem (arr):
+    i = sorted(arr)
+    return "o valor intermédio: ", i[1]
+arr=[]
 
-xrr.append(n1)
-xrr.append(n2)
-xrr.append(n3)
-print(xrr)
+n1=int(input("introduza um numero: "));
+n2=int(input("introduza um numero: "));
+n3=int(input("introduza um numero: "));
+arr.append(n1)
+arr.append(n2)
+arr.append(n3)
+print(intem(arr))
 
 
 
