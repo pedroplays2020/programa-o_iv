@@ -68,12 +68,3 @@ for x3 in num:
         print("g), x3 impar: ", x3)
     if x3 % 5 == 0:
         print("h), multiplo de 5: ", x3)
-
-
-
-
-
-
-
-
-

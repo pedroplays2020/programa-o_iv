@@ -32,4 +32,3 @@ def string(str):
     print("g) a posição da palavra tejo: ", str.find("tejo"))
 str="a amada lisboa e o rio tejo belo encantam toda a gente"
 string(str.lower())
-
