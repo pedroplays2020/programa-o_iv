@@ -1,9 +1,5 @@
 #ex1
 
-
-from re import X
-
-
 class verificaparimapar():
     par = 2
     impar = 1
@@ -19,12 +15,12 @@ def convertuplos(texto):
     verpar(texto)
     lista=texto.split(",")
     
-    return tuple(verificaparimapar(lista,verificaparimapar.par.value))
+    return convertuplos(verificaparimapar(lista,verificaparimapar.par.value))
 
 def var(xy,a):
     xrr=[]
     for y in xy:
-        if y%a==0:
+        if y % a==0:
             xrr.append(y)
     return xrr
 print(convertuplos(input("Insira um tuplo de inteiros positivos:")))

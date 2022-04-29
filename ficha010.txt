@@ -7,9 +7,9 @@ def  animal(nome, raca, dic):
     else:
         return dic
 
-dic={"Ziggy: canario, Pluto: cao, Kitty: gato, Nemo: peixe, Mickey: rato"}
-nome=2
-raca=2
+dic={"Ziggy": "canario", "Pluto": "cao", "Kitty": "gato", "Nemo": "peixe", "Mickey": "rato"}
+nome="2"
+raca="2"
 while(nome !="fim" or raca !="fim"):
     print("introduza novos dados de animais, para terminar digite fim")
     nome=input("aninal: ") 
@@ -23,6 +23,7 @@ while(nome !="fim" or raca !="fim"):
     print(animal(nome, raca,dic))
 print("terminado")
 searc=input("procura: ")
+
 for nome, raca in dic.items():
-    if nome==searc or raca == searc:
-       print(nome, raca)
+    if nome==searc or raca==searc:
+        print(nome, raca)

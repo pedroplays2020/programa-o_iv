@@ -1,27 +1,28 @@
-def ex1(str):
-    print("Ocorrências da Vogal a: ",str.count("a"))
-    print("Ocorrências da Vogal a: ",str.count("e"))
-    print("Ocorrências da Vogal a: ",str.count("i"))
-    print("Ocorrências da Vogal a: ",str.count("o"))
-    print("Ocorrências da Vogal a: ",str.count("u"))
+def zoo(name,especie,dic):
+    if name !="fim" or especie !="fim":
+        dic.update({name:especie})
+        return dic
+    else:
+        return dic
 
-def ex2(str):
-    start=str.index("b")
-    idx=str.index("a")
-    print(start)
-    
-    print("A) ",str[start:len(str)])
-    print("B) ",str[0:start])
-    print("C) ",idx)
-    print("D) ",str.count("a"))
-    print("E) ",len(str))
-    print("F) ",str.replace(" ","#"))
-    print("G) a palavra tejo esta na posiçao: ",str.find("tejo"))
- 
+dic={"Ziggy":"canario","Pluto": "cao", "Kitty":"gato", "Nemo": "peixe", "Mickey": "rato"}
+name="2"
+especie="2"
+while(name !="fim" or especie !="fim"):
+    print("digite dados de animais, para terminar escreva fim")
+    name=input("nome do animal: ")
+    print("nota:para terminar digite fim")
+    if name=="fim":
+        break
+    print(name)
+    especie=input("especie do animal: ")
+    print("nota:para terminar digite fim")
+    print(especie)
+    print(zoo(name,especie,dic))
+print("terminado")
 
+searc=input("procure: ")
 
-
-ex1(str=input("digite uma frase: "))
-# (index, count, in, seletor [:], len, replace,
-str= "a amada lisboa e o rio tejo belo encantam toda a gente"
-ex2(str.lower())
+for nome,spec in dic.items():
+    if nome==searc or spec==searc:
+        print(nome,spec)
