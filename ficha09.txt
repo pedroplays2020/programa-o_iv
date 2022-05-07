@@ -52,8 +52,3 @@ print("e)", mtpl(tuplo3, a ))
 
 
 
-
-
-
-    
-        

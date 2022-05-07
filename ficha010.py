@@ -1,4 +1,6 @@
 #ex1
+from os import system
+import sys 
 
 def  animal(nome, raca, dic):
     if nome !="fim" or raca !="fim":
@@ -16,6 +18,7 @@ while(nome !="fim" or raca !="fim"):
     print("para terminar digite fim")
     if nome == "fim":
         break
+    sys.exit()
     print(nome)
     raca=input("raça do animal: ")
     print("para terminar digite fim")

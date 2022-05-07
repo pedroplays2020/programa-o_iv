@@ -1,28 +1,26 @@
-def zoo(name,especie,dic):
-    if name !="fim" or especie !="fim":
-        dic.update({name:especie})
-        return dic
-    else:
-        return dic
+from enum import Enum
+class imparpar(Enum):
+    PAR=0
+    IMPAR=1
+def checkpar(list,p):
+  
+    lista=[]
+    for num in list:
+        if num%2==p:
+            lista.append(num)
+    return lista
+def converter(text):
+    lista2=[]
+    lista=text.split(",")
+    for n in lista:
+        lista2.append(int(n))
+    return tuple(checkpar(lista2,imparpar.PAR.value))
 
-dic={"Ziggy":"canario","Pluto": "cao", "Kitty":"gato", "Nemo": "peixe", "Mickey": "rato"}
-name="2"
-especie="2"
-while(name !="fim" or especie !="fim"):
-    print("digite dados de animais, para terminar escreva fim")
-    name=input("nome do animal: ")
-    print("nota:para terminar digite fim")
-    if name=="fim":
-        break
-    print(name)
-    especie=input("especie do animal: ")
-    print("nota:para terminar digite fim")
-    print(especie)
-    print(zoo(name,especie,dic))
-print("terminado")
+def mult(nums,multiplayer):
+    arr=[]
+    for n in nums:
+        if n%multiplayer==0:
+            arr.append(n)
+    return arr
 
-searc=input("procure: ")
-
-for nome,spec in dic.items():
-    if nome==searc or spec==searc:
-        print(nome,spec)
+print(converter(input("digite um tuplo: ")))
