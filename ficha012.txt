@@ -69,11 +69,3 @@ with open('ficha12novoteste.txt', 'r+') as c:
     for palavra in range (len(unica)):
         c.write(unica[palavra])
         c.write("\n")
-
-
-
- 
-
-
-
-

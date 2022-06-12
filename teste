@@ -1,192 +1,95 @@
-<<<<<<< HEAD
-import time
+import math as M
 
-#  ex1
 
-count = 0
-vogais = 0
-Twords = 0
-words_t = []
-try:
-    with open('ficha12.txt') as f:
-        lines = f.readlines()
-    f.close()
-except:
-    print('Problema na abertuta do ficheiro')
+class empregado(object):
 
-print(lines)
-for text in lines:
-    str = text
+    def __init__(self, numero=0, nome='', sb=0):
+        self.numero = numero
+        self.nome = nome
+        self.sb = sb
+        self.tax = self.calctax()
+        self.irs = self.calcirs()
+        self.ss = self.calcSS()
+        self.sl = self.calsalliquid()
 
-    vogais += str.count("a")+str.count("e") + \
-        str.count("i")+str.count("o")+str.count("u")
+    def calctax(self):
+        if self.sb >= 2000.00:
+            taxa = 0.25
+        if self.sb >= 1000.00 and self.sb < 2000.00:
+            taxa = 0.20
+        if self.sb < 1000.00:
+            taxa = 0.175
+        return taxa
 
-    words_t.append(str.split(" "))
+    def calcirs(self):
+        return self.sb*self.tax
 
-    for k in range(len(str)):
-        if str[k].isalpha():
-            count += 1
-for line in range(len(words_t)):
-    for word in range(len(words_t[line])):
-        if words_t[line][word] != "\n":
-            Twords += 1
+    def calcSS(self):
+
+        return (self.sb-self.irs)*0.11
+
+    def calsalliquid(self):
+        return (self.sb-self.irs)-self.ss
+
+
+class professor(empregado):
+    def __init__(self, areaensino=[], numero=0, nome='', sb=0):
+        empregado.__init__(self, numero, nome, sb)
+        self.areaensino = areaensino
+
+
+class calculadora():
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def mult(self):
+        return self.x*self.y
+
+    def div(self):
+        if(self.x == 0 or self.y == 0):
+            return "nao pode ter valores a 0 na divsao"
         else:
-            continue
+            return self.x/self.y
 
-print("vogais: ", vogais)
-print("consoantes: ", count-vogais)
-print("palavras: ", Twords)
-print("linhas: ", len(lines))
-# ex2
-words_t = []
-unique = []
-try:
-    with open('ficha12.txt') as f:
-        lines = f.readlines()
-    f.close()
-except:
-    print('Problema na abertuta do ficheiro')
+    def som(self):
+        return self.x+self.y
 
-for text in lines:
-    str = text
-    words_t.append(str.split(None))
+    def sub(self):
+        return self.x-self.y
 
-for line in range(len(words_t)):
-    for word in range(len(words_t[line])):
+    def square(self):
+        print("square of first number: ", M.sqrt(self.x),
+              "\nsquare of second number:  ", M.sqrt(self.y))
 
-        if words_t[line][word] != " " and words_t[line][word] not in unique:
-            unique.append(words_t[line][word])
-        else:
-            continue
+    def loga(self):
+        print("log of first number: ", M.log10(self.x),
+              "\nlog of second number:  ", M.log10(self.y))
 
-try:
-    f = open('ficha12_newtext.txt', 'x')
-    print("creating file...")
-    time.sleep(5)
-    f.close()
-except:
-    print('Problema na criaçao do ficheiro or file already exists')
+    def sin(self):
+        print("sin of first number: ", M.sin(self.x),
+              "\nsin of second number:  ", M.sin(self.y))
 
 
-with open('ficha12_newtext.txt', 'r+') as f:
-    for word in range(len(unique)):
-        f.write(unique[word])
-        f.write("\n")
-=======
-<<<<<<< HEAD
-def separator(t):
-    arr = t.split(" ")
-    return unique(arr)
-
-
-def unique(arr):
-    pos = 0
-    uniquelist = []
-    positiondic = {}
-    positionuniquedic = {}
-
-    for word in arr:
-
-        if word not in uniquelist:
-            uniquelist.append(word)
-            positionuniquedic[word] = pos
-
-        positionsaver(word, pos, positiondic)
-        pos = pos+1
-    print("unique words: ", uniquelist)
-    return constructor(positiondic)
-
-
-def positionsaver(word, pos, positiondic):
-    arr = []
-    if word in positiondic:
-        arr = positiondic[word]
-        arr.append(pos)
-        positiondic[word] = arr
-
-    else:
-        arr.append(pos)
-        positiondic[word] = arr
-
-    return positiondic
-
-
-def constructor(positiondic):
-    sorted = []
-    sentence = []
-
-    for k, v in positiondic.items():
-        for i in v:
-            sorted.append(i)
-
-        sorted.sort()
-
-    for number in sorted:
-        for k, v in positiondic.items():
-            for i in range(len(v)):
-                if number == positiondic[k][i]:
-                    sentence.append(k)
-    return sentence
-
-
-text = input("digite uma frase: ")
-=======
-def separator(t):
-    arr = t.split(" ")
-    return unique(arr)
-
-
-def unique(arr):
-    pos = 0
-    uniquelist = []
-    positiondic = {}
-    positionuniquedic = {}
-
-    for word in arr:
-
-        if word not in uniquelist:
-            uniquelist.append(word)
-            positionuniquedic[word] = pos
-
-        positionsaver(word, pos, positiondic)
-        pos = pos+1
-    print("unique words: ", uniquelist)
-    return constructor(positiondic)
-
-
-def positionsaver(word, pos, positiondic):
-    arr = []
-    if word in positiondic:
-        arr = positiondic[word]
-        arr.append(pos)
-        positiondic[word] = arr
-
-    else:
-        arr.append(pos)
-        positiondic[word] = arr
-
-    return positiondic
-
-
-def constructor(positiondic):
-    sorted = []
-    sentence = []
-
-    for k, v in positiondic.items():
-        for i in v:
-            sorted.append(i)
-
-        sorted.sort()
-
-    for number in sorted:
-        for k, v in positiondic.items():
-            for i in range(len(v)):
-                if number == positiondic[k][i]:
-                    sentence.append(k)
-    return sentence
-
-
-text = input("digite uma frase: ")
->>>>>>> 219477453527abe712f6e793c208795339ec011e
-print(separator(text))
->>>>>>> 466424345a42f5a3cfa5c65decfc744bce99173e
+nome = input("digite o seu nome: ")
+numero = input("digite o seu numero: ")
+salbruto = float(input("digite o seu salario bruto: "))
+emp1 = empregado(numero, nome, salbruto)
+print("Salario bruto: ", emp1.sb)
+print("SS: ", emp1.ss)
+print("IRS: ", emp1.irs)
+print("Taxa: ", emp1.tax)
+print("Salario liquido: ", emp1.sl)
+disciplinas = []
+nome = input("digite o seu nome: ")
+numero = input("digite o seu numero: ")
+ae = input("digite as areas de ensino separadas por virgula: ")
+disciplinas = ae.split(",")
+salbruto = float(input("digite o seu salario bruto: "))
+tea1 = professor(disciplinas, numero, nome, salbruto)
+print("Salario bruto: ", tea1.sb)
+print("SS: ", tea1.ss)
+print("IRS: ", tea1.irs)
+print("Taxa: ", tea1.tax)
+print("Salario liquido: ", tea1.sl)
+print("areas de ensino: ", tea1.areaensino)
